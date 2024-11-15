@@ -1,0 +1,78 @@
+//STACK IMPLEMENTATION USING ARRAY
+#include <stdio.h>
+#include <stdlib.h>
+void push(int st[],int *top,int d,int size){
+    if(*top==size-1){
+        printf("OVERFLOW/THERE IS NO SPACE TO ENTER YOUR CURRENT ELEMENT \tsorry!\n\n");
+    }
+    else {
+        *top=*top+1;
+        st[*top]=d;
+    }
+}
+void pop(int st[],int *top)
+{
+  if(*top==-1){
+      printf("UNDER FLOW /STAK IS EMPTY :\n");
+      
+  }  
+  else
+  {     printf(" %d IS THE TOP ELEMENT OF ARRAY IS DELETED \n",st[*top]);
+      *top=*top-1;
+  }
+}
+void display(int st[],int top,int size){
+    if(top==-1){
+        printf("THERE IS NO ANY ELEMENT TO DISPLAY:\n");
+    }
+    else{
+        int temp=top;
+        while(temp!=-1) {
+            printf("%d  ",st[temp]);
+            temp--;
+        }
+    }
+}
+
+int main()
+{
+    int stak[5];
+    int size=5;
+    int top=-1;
+
+    int ch;
+    printf("Enter 1 for push :\n");
+    printf("Enter 2 for pop\n");
+    printf("Enter 3 for display :\n");
+    while(1){
+        printf("Enter your choice :");
+        scanf("%d",&ch);
+        
+        switch(ch){
+            case 1:
+            {
+            int d;
+            printf("Enter data :");
+            scanf("%d",&d);
+            push(stak,&top,d,size);
+            break;
+            }
+            case 2:
+            {
+                pop(stak,&top);
+                break;
+                
+            }
+            case 3:
+            {
+                display(stak,top,size);
+                break;
+            }
+            case 4:
+            exit(0);
+            default: printf("Wrong inout :\n");
+        }
+    }
+
+    return 0;
+}
