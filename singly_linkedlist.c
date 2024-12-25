@@ -1,3 +1,4 @@
+
 #include<stdio.h>
 #include<stdlib.h>
 struct node {
@@ -9,7 +10,7 @@ struct node * createnode() {
             struct node *add;
             add=(struct node*)malloc(sizeof(struct node));
             int d;
-            printf("Enter elemt :");
+            printf("Enter element :");
             scanf("%d",&add->data);
             add->next=NULL;
 }
@@ -138,6 +139,30 @@ void display() {
    }
 
 }
+void search(int d){
+    int pos=0,flag=0;
+    if(start==NULL){
+        printf("UNDERFLOW");
+    }
+    else{
+        struct node *temp=start;
+        while(temp!=NULL){
+            
+            if(temp->data==d){
+                flag=1;
+                break;
+            }
+            pos++;
+            temp=temp->next;
+        }
+    }
+    if(flag==0){
+        printf("NOT PRESENT :");
+    }
+    else{
+        printf("PRESENT %d",pos);
+    }
+}
 
 int main() {
     int ch;
@@ -177,7 +202,13 @@ int main() {
             break; 
         case 8:
             exit(0);
-            break;   
+            break;
+        case 9:
+        int d;
+        printf("ENTER DATA TO SEARCH :");
+        scanf("%d",&d);
+            search(d);
+            break;
         default:
             printf("\nWrong Input :\n");
         }
