@@ -42,7 +42,7 @@ void insert_end() {
     }
 }
 void insert_mid() {
-        int d;
+        /*int d;
         printf("ENTER PLACE AFTER WHICH ELEMENT YOU WANT TO INSERT :");
         scanf("%d",&d);
        /* struct node *trav;
@@ -52,7 +52,7 @@ void insert_mid() {
             count++;
             trav=trav->next;
         }
-        */
+        
             struct node *rec=createnode();
         if(start==NULL) {
             start=rec;
@@ -67,6 +67,24 @@ void insert_mid() {
             j=temp->next;
             temp->next=rec;
             rec->next=j;
+        }*/
+        int pos;
+        printf("Enter position where you want to inserty new element :");
+        scanf("%d",&pos);
+        
+        struct node *add=createnode();
+        if(start==NULL){
+            start=add;
+        }
+        else{
+            struct node *temp=start;
+            int i=0;
+            while(i<pos){
+                temp=temp->next;
+                i++;
+            }
+            add->next=temp->next;
+            temp->next=add;
         }
 }
 void delete_start() 
